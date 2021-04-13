@@ -182,10 +182,24 @@ const {Op} = require('sequelize');
 //     sequelize.close();
 // });
 
-Post.findByPk(1, {
-    include: [
-        {association: "comentarios"}
-    ]
-}).then((post) => {
-    console.table(post.comentarios.map((post) => post.toJSON()));
-});
+// Post.findByPk(1, {
+//     include: [
+//         {association: "comentarios"}
+//     ]
+// }).then((post) => {
+//     console.table(post.comentarios.map((post) => post.toJSON()));
+// });
+
+// Post.findByPk(1, {include: ["curtiu"]}).then(
+//     post => {
+//         console.log(post.toJSON());
+//         sequelize.close();
+//     }
+// );
+
+Usuario.findByPk(1, {include: ["curtiu"]}).then(
+    usuario => {
+        console.log(usuario.toJSON());
+        sequelize.close();
+    }
+);
